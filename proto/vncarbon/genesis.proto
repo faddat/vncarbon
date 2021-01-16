@@ -1,0 +1,9 @@
+syntax = "proto3";
+package faddat.vncarbon.vncarbon;
+
+option go_package = "github.com/faddat/vncarbon/x/vncarbon/types";
+
+// GenesisState defines the capability module's genesis state.
+message GenesisState {
+}
+
