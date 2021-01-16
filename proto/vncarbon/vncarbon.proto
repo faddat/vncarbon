@@ -1,0 +1,34 @@
+syntax = "proto3";
+package faddat.vncarbon.vncarbon;
+
+option go_package = "github.com/faddat/vncarbon/x/vncarbon/types";
+
+import "gogoproto/gogo.proto";
+
+message Vncarbon {
+  string creator = 1;
+  string id = 2;
+  int32 carbon = 3; 
+  string emitter = 4; 
+  string date = 5; 
+}
+
+message MsgCreateVncarbon {
+  string creator = 1;
+  int32 carbon = 2; 
+  string emitter = 3; 
+  string date = 4; 
+}
+
+message MsgUpdateVncarbon {
+  string creator = 1;
+  string id = 2;
+  int32 carbon = 3; 
+  string emitter = 4; 
+  string date = 5; 
+}
+
+message MsgDeleteVncarbon {
+  string creator = 1;
+  string id = 2;
+}

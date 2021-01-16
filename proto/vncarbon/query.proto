@@ -4,12 +4,36 @@ package faddat.vncarbon.vncarbon;
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
+import "vncarbon/vncarbon.proto";
 
 option go_package = "github.com/faddat/vncarbon/x/vncarbon/types";
 
 // Query defines the gRPC querier service.
 service Query {
     // this line is used by starport scaffolding # 2
+	rpc Vncarbon(QueryGetVncarbonRequest) returns (QueryGetVncarbonResponse) {
+		option (google.api.http).get = "/faddat/vncarbon/vncarbon/vncarbon/{id}";
+	}
+	rpc VncarbonAll(QueryAllVncarbonRequest) returns (QueryAllVncarbonResponse) {
+		option (google.api.http).get = "/faddat/vncarbon/vncarbon/vncarbon";
+	}
+
 }
 
 // this line is used by starport scaffolding # 3
+message QueryGetVncarbonRequest {
+	string id = 1;
+}
+
+message QueryGetVncarbonResponse {
+	Vncarbon Vncarbon = 1;
+}
+
+message QueryAllVncarbonRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllVncarbonResponse {
+	repeated Vncarbon Vncarbon = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
